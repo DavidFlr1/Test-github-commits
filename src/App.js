@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Switch, Route, useRouteMatch } from 'react-router-dom'
-import { Navbar, Home, Commits, Profile } from './components/index'
+import { Navbars, Home, Commits, Profile } from './components/index'
 
-import {Button} from 'reactstrap'
+import Button from 'react-bootstrap/Button'
 
 
 import './styles.css'
@@ -16,7 +16,7 @@ const App = () => {
 
     return (
         <Router>
-            <Navbar />
+            <Navbars />
             <div>
                 <Switch>
                     <Route exact path="/">

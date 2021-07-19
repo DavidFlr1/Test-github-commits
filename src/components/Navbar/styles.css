@@ -1,0 +1,12 @@
+.navbar-container {
+    width: 100%; 
+    background: #4a65a3; 
+    box-shadow: 0px 5px 6px lightgray;
+}
+
+.navbar-display {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 4rem;
+}

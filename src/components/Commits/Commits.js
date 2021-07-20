@@ -45,7 +45,7 @@ const Commits = () => {
   return (
     <div>
       <Container>
-      <h2 className="text-center">Commit history</h2>
+      <h1 className="text-center">Commit history</h1>
         <Row>
           <Col>
             <Form>
@@ -73,7 +73,18 @@ const Commits = () => {
         </Row>
         <Row>
           <div className="commits-box">
-
+            {commits.length !== 0 
+            ? commits.map(element => (
+              <div>
+                <h5 className="commit-header">{element.author.type}: {element.commit.author.name}</h5>
+                <span className="commit-span">Committed on: {element.commit.author.date.substring(10, 0)}</span>
+                <div className="commit-box">
+                  <p>{element.commit.message}</p>
+                </div>
+              </div>
+            ))
+            : <div><h4>{error.message} </h4><p>{error.additional}</p></div>
+            }
           </div>
         </Row>
       </Container>

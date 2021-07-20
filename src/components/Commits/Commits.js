@@ -40,6 +40,10 @@ const Commits = () => {
     console.log(commits)
   }
 
+  useEffect(() => {
+    
+  })
+
   return (
     <div>
       <Container>

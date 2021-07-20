@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button'
 
 import './styles.css'
 
-const Commits = () => {
+const Commits = ({mouse}) => {
   const [commits, setCommits] = useState([])
   const [error, setError] = useState({message: 'Lets search for commits...', additional: 'Give me the username and repository name'})
   const initialStateValues = {
@@ -47,7 +47,7 @@ const Commits = () => {
   })
 
   return (
-    <div>
+    <div >
       <Container>
       <h1 className="text-center">COMMIT HISTORY</h1>
         <Row>

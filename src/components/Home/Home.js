@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
 import './styles.css'
-const Home = () => {
+const Home = ({handleMouse}) => {
   const [cursor, setCursor] = useState({})
   const [emojis, setEmojis] = useState([])
 
@@ -18,11 +18,11 @@ const Home = () => {
     .then(response => {
       if(response.status === 200) {
         for(var i in response.data){
-          if(emojis.length < 100){
+          if(emojiArray.length < 100){
             emojiArray.push([i, response.data[i]])
-            setEmojis(emojiArray)
           } else { break }
         }
+        setEmojis(emojiArray)
       }
     })
     .catch(error => {
@@ -46,7 +46,8 @@ const Home = () => {
               <Button variant="light" onClick={() => setCursor(element[1])}><img src={element[1]} className="emojis-button"/></Button>
             ))}
           </div>
-            <Button onClick={() => getEmojis()} className="emoji-button">Get Emojis</Button>
+            <Button variant="success" onClick={() => handleMouse(cursor)} className="emoji-button">Set Mouse</Button>
+            <Button variant="danger" onClick={() => handleMouse('')} className="emoji-button">Reset Mouse</Button>
         </Col>
       </Row>
       <Row>

@@ -45,7 +45,7 @@ const Commits = ({mouse}) => {
   // Fetch commits with initial values and handle callbacks
   useEffect(() => {
     if(commits.length === 0){
-      getCommits()
+      // getCommits()
     }
   })
 

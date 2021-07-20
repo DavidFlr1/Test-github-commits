@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -13,9 +14,9 @@ const Navbars = () => {
             <Container>
                 <Navbar.Brand><FontAwesomeIcon icon={faBars} style={{color: "white"}}/></Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Emojis</Nav.Link>
-                    <Nav.Link href="/Commits">Commits</Nav.Link>
-                    <Nav.Link href="/Profile">Profile</Nav.Link>
+                    <Link to="/"><Nav.Link href="/">Emojis</Nav.Link></Link>
+                    <Link to="/Commits"><Nav.Link href="/Commits">Commits</Nav.Link></Link>
+                    <Link to="/Profile"><Nav.Link href="/Profile">Profile</Nav.Link></Link>
                 </Nav>
             </Container>
         </Navbar>

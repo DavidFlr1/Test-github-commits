@@ -33,6 +33,7 @@ const Profile = () => {
   // Then fetch repos from git api and set them into an array
   // If error set commits to empty and display error message
   const getUser = async () => {
+    setRepos([])
     axios.get(`https://api.github.com/users/${values.username}`)
       .then(response => {
         if(response.status === 200) {
@@ -62,9 +63,8 @@ const Profile = () => {
 
   // Fetch user and repos with initial values and handle callbacks
   useEffect(() => {
-    if(user.length === 0 || repos.length === 0){
+    if(Object.keys(user).length === 0 && repos.length === 0){
       getUser()
-      getRepos()
     }
   })
 
@@ -114,13 +114,13 @@ const Profile = () => {
             <h4>Repositories</h4> <br/>
             <Container>
               <Row>
-                {repos.map(element => (
+                {repos.length !== 0 ? repos.map(element => (
                   <Col md="5" className="repositorie-box">
                     <a href={element.html_url} target="_blank">{element.name}</a>
                     <p className="repo-text" style={{height: "30px"}}>{element.description}</p>
                     <p className="repo-text"> <FontAwesomeIcon icon={faCode} style={{color: "darkgoldenrod"}}/> {element.language}</p>
                   </Col>
-                ))}
+                )):''}
               </Row>
             </Container>
           </Col>

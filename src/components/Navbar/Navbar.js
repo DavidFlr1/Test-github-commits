@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -7,10 +7,7 @@ import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-import './styles.css'
-
 const Navbars = () => {
-
     return (
         <Navbar bg="primary" variant="dark">
             <Container>

@@ -9,9 +9,11 @@ import Button from 'react-bootstrap/Button'
 
 import './styles.css'
 const Home = ({handleMouse}) => {
+  // Declaring emoji array and cursor value
   const [cursor, setCursor] = useState({})
   const [emojis, setEmojis] = useState([])
 
+  // Fetching emojis from the git api and save first 100
   const getEmojis = () => {
     var emojiArray = []
     axios.get(`https://api.github.com/emojis`)
@@ -30,6 +32,7 @@ const Home = ({handleMouse}) => {
     })
   }
 
+  // Fetch emojis and handle callbacks
   useEffect(() => {
     if(emojis.length === 0){
       getEmojis()

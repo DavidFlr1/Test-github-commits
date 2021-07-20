@@ -14,10 +14,11 @@ import { faUserFriends, faUserPlus, faMapMarkedAlt, faLink, faCode, faEye } from
 
 import './styles.css'
 const Profile = () => {
+  // Declaring user and repos array and error message to handle empty arrays feedback
   const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [error, setError] = useState({message: 'Lets search an user profile...', additional: 'Give me the git user name'})
-
+    // Setting initial values to fetch user and its repos
   const initialStateValues = {
     username: 'DavidFlr1'
   };
@@ -28,11 +29,15 @@ const Profile = () => {
     setValues({...values, [name]: value}) // ...values copy actual value and update the value
   };
 
+  // Fetching user from git api and set them into an array
+  // Then fetch repos from git api and set them into an array
+  // If error set commits to empty and display error message
   const getUser = async () => {
     axios.get(`https://api.github.com/users/${values.username}`)
       .then(response => {
         if(response.status === 200) {
           setUser(response.data)
+          getRepos()
         }
       })
       .catch(error => {
@@ -40,10 +45,7 @@ const Profile = () => {
         setError({message: 'Ops... something went wrong', additional: 'Verify if the git user profile exist'})
         setUser({})
       })
-    console.log("User", user)
-    getRepos()
   }
-
   const getRepos = async () => {
     axios.get(`https://api.github.com/users/${values.username}/repos`)
       .then(response => {
@@ -58,6 +60,7 @@ const Profile = () => {
     console.log("Repositories", repos)
   }
 
+  // Fetch user and repos with initial values and handle callbacks
   useEffect(() => {
     if(user.length === 0 || repos.length === 0){
       getUser()

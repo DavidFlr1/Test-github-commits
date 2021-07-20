@@ -11,8 +11,10 @@ import Button from 'react-bootstrap/Button'
 import './styles.css'
 
 const Commits = ({mouse}) => {
+  // Declaring commit array and error message to handle empty arrays feedback
   const [commits, setCommits] = useState([])
   const [error, setError] = useState({message: 'Lets search for commits...', additional: 'Give me the username and repository name'})
+  // Setting initial values to fetch commits
   const initialStateValues = {
     username: "DavidFlr1",
     repository: "Test-github-commits"
@@ -21,11 +23,12 @@ const Commits = ({mouse}) => {
 
   const handleInputChange = e => {
     const { name, value } = e.target; // Allow acces to the control name and its value
-    setValues({...values, [name]: value}) // ...values copy actual value and update the value
+    setValues({...values, [name]: value})
   };
 
+  // Fetching commits from repository and setting them into an array
+  // If error set commits to empty and display error message
   const getCommits = async () => {
-
     axios.get(`https://api.github.com/repos/${values.username}/${values.repository}/commits`)
       .then(response => {
         if(response.status === 200) {
@@ -37,9 +40,9 @@ const Commits = ({mouse}) => {
         setError({message: 'Ops... something went wrong', additional: 'Verify if the respository and username is correct or if the repository is public'})
         setCommits([])
       })
-    console.log(commits)
   }
 
+  // Fetch commits with initial values and handle callbacks
   useEffect(() => {
     if(commits.length === 0){
       getCommits()

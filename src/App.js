@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import { BrowserRouter as Router, Switch, Route, useRouteMatch } from 'react-router-dom'
 import { Navbars, Home, Commits, Profile } from './components/index'
 
@@ -9,10 +8,7 @@ import Button from 'react-bootstrap/Button'
 import './styles.css'
 
 const App = () => {
-    const fetchInformation = () => {
-        axios.get('https://api.github.com/repos/DavidFlr1/Test-github-commits/commits')
-            .then(response => console.log(response))
-    }
+
 
     return (
         <Router>

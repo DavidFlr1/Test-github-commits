@@ -18,3 +18,9 @@
   3. localhost:3000 should be automatically openen on your browser, if not, type http://localhost:3000 on your browser
 
 # Try the project on my github page
+
+# Consumed APIs
+Documentation -> API
+https://docs.github.com/en/rest/reference/repos#commits -> GET https://api.github.com/repos/<user>/<repo>/commits
+https://docs.github.com/en/rest/reference/users -> GET https://api.github.com/users/<user>
+https://docs.github.com/en/rest/reference/users -> GET https://api.github.com/users/<user>/repos

@@ -59,8 +59,10 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    getUser()
-    getRepos()
+    if(user.length === 0 || repos.length === 0){
+      getUser()
+      getRepos()
+    }
   })
 
   return (

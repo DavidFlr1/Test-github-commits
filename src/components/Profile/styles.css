@@ -1,0 +1,36 @@
+.profile-container {
+  height: 90vh;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  width: 200px !important;
+  height: 200px !important;
+}
+
+h4 {
+  color: rgb(78, 78, 78);
+}
+
+p {
+  color:rgb(94, 94, 94);
+}
+
+.repositorie-box {
+  width: 380px;
+  height: 112px;
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  padding: 12px;
+  margin: 1rem 1rem 0 0 !important;
+}
+
+.repositorie-container {
+  overflow-y: auto;
+  scroll-behavior: auto;
+  height: 70vh;
+}
+
+.repo-text {
+  font-size: 12px;
+}

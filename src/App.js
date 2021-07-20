@@ -4,7 +4,6 @@ import { Navbars, Home, Commits, Profile } from './components/index'
 
 import Button from 'react-bootstrap/Button'
 
-
 import './styles.css'
 
 const App = () => {

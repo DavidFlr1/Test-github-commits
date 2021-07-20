@@ -34,18 +34,16 @@ const Commits = () => {
       })
       .catch(error => {
         console.log(error.message)
-        setError({message: 'Ops... something went wrong', additional: 'Verify the username and respository name is correct'})
+        setError({message: 'Ops... something went wrong', additional: 'Verify if the respository and username is correct or if the repository is public'})
         setCommits([])
       })
-      
-
     console.log(commits)
   }
 
   return (
     <div>
       <Container>
-      <h1 className="text-center">Commit history</h1>
+      <h1 className="text-center">COMMIT HISTORY</h1>
         <Row>
           <Col>
             <Form>
@@ -75,13 +73,13 @@ const Commits = () => {
           <div className="commits-box">
             {commits.length !== 0 
             ? commits.map(element => (
-              <div>
+              <Col md="6">
                 <h5 className="commit-header">{element.author.type}: {element.commit.author.name}</h5>
                 <span className="commit-span">Committed on: {element.commit.author.date.substring(10, 0)}</span>
                 <div className="commit-box">
                   <p>{element.commit.message}</p>
                 </div>
-              </div>
+              </Col>
             ))
             : <div><h4>{error.message} </h4><p>{error.additional}</p></div>
             }

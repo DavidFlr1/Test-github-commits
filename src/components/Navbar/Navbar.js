@@ -16,7 +16,7 @@ const Navbars = () => {
             <Container>
                 <Navbar.Brand><FontAwesomeIcon icon={faBars} style={{color: "white"}}/></Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/">Emojis</Nav.Link>
                     <Nav.Link href="/Commits">Commits</Nav.Link>
                     <Nav.Link href="/Profile">Profile</Nav.Link>
                 </Nav>

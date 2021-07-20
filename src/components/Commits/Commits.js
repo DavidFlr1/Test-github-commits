@@ -8,18 +8,15 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const Commits = () => {
-  const [user, setUser] = useState('DavidFlr1')
+import './styles.css'
 
-  const fetchInformation = () => {
-      axios.get('https://api.github.com/repos/DavidFlr1/Test-github-commits/commits')
-          .then(response => console.log(response))
-  }
+const Commits = () => {
+  const [commits, setCommits] = useState([])
+  const [error, setError] = useState({message: 'Lets search for commits...', additional: 'Give me the username and repository name'})
   const initialStateValues = {
     username: "DavidFlr1",
     repository: "Test-github-commits"
   };
-
   const [values, setValues] = useState(initialStateValues);
 
   const handleInputChange = e => {
@@ -27,8 +24,22 @@ const Commits = () => {
     setValues({...values, [name]: value}) // ...values copy actual value and update the value
   };
 
-  const search = () => {
-    console.log(values)
+  const getCommits = async () => {
+
+    axios.get(`https://api.github.com/repos/${values.username}/${values.repository}/commits`)
+      .then(response => {
+        if(response.status === 200) {
+          setCommits(response.data)
+        }
+      })
+      .catch(error => {
+        console.log(error.message)
+        setError({message: 'Ops... something went wrong', additional: 'Verify the username and respository name is correct'})
+        setCommits([])
+      })
+      
+
+    console.log(commits)
   }
 
   return (
@@ -54,11 +65,16 @@ const Commits = () => {
                 </Form.Text>
               </Form.Group>
 
-              <Button variant="primary" onClick={() => search()}>
+              <Button variant="primary" onClick={() => getCommits()}>
                 Get Commits
               </Button>
             </Form>
           </Col>
+        </Row>
+        <Row>
+          <div className="commits-box">
+
+          </div>
         </Row>
       </Container>
     </div>

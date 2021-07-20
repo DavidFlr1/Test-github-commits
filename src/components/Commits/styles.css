@@ -1,0 +1,21 @@
+.commits-box {
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  margin: 2rem 0 2rem 0!important;
+  padding: 1rem;
+}
+
+.commit-header {
+  line-height: 0.1;
+}
+
+.commit-span {
+  font-size: 11px;
+  line-height: 0.1 !important;
+  color: gray;
+}
+
+.commit-box {
+  padding-left: 1rem;
+  color:rgb(94, 94, 94);
+}

@@ -41,7 +41,7 @@ const Commits = () => {
   }
 
   useEffect(() => {
-    
+    getCommits()
   })
 
   return (

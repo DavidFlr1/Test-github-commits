@@ -63,10 +63,8 @@ const Profile = () => {
 
   // Fetch user and repos with initial values and handle callbacks
   useEffect(() => {
-    if(Object.keys(user).length === 0 && repos.length === 0){
-      // getUser()
-    }
-  })
+    getUser()
+  }, [])
 
   return (
     <Container className="profile-container">

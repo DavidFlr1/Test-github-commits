@@ -34,10 +34,8 @@ const Home = ({handleMouse}) => {
 
   // Fetch emojis and handle callbacks
   useEffect(() => {
-    if(emojis.length === 0){
-      getEmojis()
-    }
-  })
+    getEmojis()
+  }, [])
 
   return (
     <Container>
